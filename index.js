@@ -42,7 +42,7 @@ promptQuestions = () => {
       name: 'textColor',
     },
     {
-      type: 'checkbox',
+      type: 'list',
       message: 'Choose a shape for your logo:',
       choices: ['circle', 'square', 'triangle'],
       name: 'shape',
@@ -53,15 +53,18 @@ promptQuestions = () => {
       name: 'shapeColor',
     },
   ])
-
   .then((data) => {
+    console.log(data);
     const logoOutput = generateLogo(data);
     fs.writeFile('logo.svg', logoOutput, (err) =>
       err ? console.error(err) : console.log('Success! logo.svg is generated!')
     );
   })
+  .catch(err => console.error(err))
 
 }
 
 
 promptQuestions();
+
+module.exports = generateLogo
