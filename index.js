@@ -1,9 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { Circle, Square, Triangle } = require('./lib/shapes.js');
-
+ 
+// function to generate the data for logo
 function generateLogo(data) {
 
+  // circle data
   if (data.shape == "circle") {
     const shape = new Circle(data.shapeColor);
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -12,6 +14,7 @@ function generateLogo(data) {
   </svg>`
   }
 
+  // square data
   if (data.shape == "square") {
     var shape = new Square(data.shapeColor);
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -20,6 +23,7 @@ function generateLogo(data) {
   </svg>`
   }
 
+  // triangle data 
   if (data.shape == "triangle") {
     var shape = new Triangle(data.shapeColor);
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -29,6 +33,7 @@ function generateLogo(data) {
   }
 }
 
+// questions for the user to answer
 promptQuestions = () => {
   inquirer.prompt([
     {
@@ -56,6 +61,7 @@ promptQuestions = () => {
   .then((data) => {
     console.log(data);
     const logoOutput = generateLogo(data);
+    // creates the file named 'logo.svg' and shows your desired logo
     fs.writeFile('logo.svg', logoOutput, (err) =>
       err ? console.error(err) : console.log('Success! logo.svg is generated!')
     );
@@ -64,7 +70,7 @@ promptQuestions = () => {
 
 }
 
-
+// calling the function so questions are asked in the terminal
 promptQuestions();
 
 module.exports = generateLogo
