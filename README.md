@@ -26,7 +26,7 @@ OR
 
 Repository: https://github.com/roshniipatel/logo-timee 
 
-Walk-through Video: 
+Walk-through Video: https://drive.google.com/file/d/1h6yDtaxsj2BqYXJQssHPk_D8_4ePOlKl/view?usp=share_link  
 
 ## Credits
 
